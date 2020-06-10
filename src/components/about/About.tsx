@@ -25,7 +25,6 @@ class About extends React.Component<Aprops, any> {
   }
 
   render() {
-    console.log(process.env.NODE_ENV);
     return (
       <div className="about">
         <p> I am About Component</p>

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './pageNotFound.scss';
 class PageNotFound extends React.Component {
-
   render() {
     return (
       <div className="not-found">

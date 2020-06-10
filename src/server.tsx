@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import express from 'express';
 import { StaticRouter, matchPath } from 'react-router-dom';
 import { createStore } from 'redux';
+import MobileDetect from 'mobile-detect';
 import Routes from './router/routerlinks';
 import rootReducer from './reducers';
 import RouteMap from './router/index';
 import { filterData } from './utils/filter';
+import manifestData from '../dist/parcel-manifest.json';
 const app = express();
 const PORT = process.env.PORT || 4000;
-import MobileDetect from 'mobile-detect';
-import manifestData from '../dist/parcel-manifest.json';
 // tbd: need to move this to nginx level
 // app.get('*.js', (req, res, next) => {
 //   req.url = req.url + '.gz';
