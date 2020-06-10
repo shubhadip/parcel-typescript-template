@@ -5,7 +5,7 @@ import App from './components/app/App';
 import { browserHistory } from './history';
 
 function loadApp() {
-  const isProd = process.env.NODE_ENV === 'production';
+  const isProd = process.env.NODE_ENV === 'production' && process.env.SSR;
   return !isProd
     ? ReactDOM.render(
       <Router history={browserHistory}>
