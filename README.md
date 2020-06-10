@@ -12,9 +12,9 @@ Please follow below mentioned step to run this project:
 
 - Clone the repo
 ```shell##
-https://github.com/shubhadip/mono-repo-react-native
+https://github.com/shubhadip/parcel-typescript-template
 ```
-- run **yarn** in root folder
+- run **yarn install** in root folder
 
 #### To Run Client Version in Development
 - Run `yarn dev` in root folder.
