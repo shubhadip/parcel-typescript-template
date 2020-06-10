@@ -1,7 +1,6 @@
 # parcel-typescript-template
 React TypeScript Template using Parcel 
-## code sharing between Web, iOS and Android
-\
+
 **Technology Used:**\
 [React](https://reactjs.org/)\
 [Parcel](https://github.com/parcel-bundler/parcel)\
