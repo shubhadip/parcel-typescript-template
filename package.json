@@ -1,0 +1,37 @@
+{
+  "name": "first-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel ./index.html --open",
+    "watch": "parcel watch index.html",
+    "build": "rimraf ./dist && parcel build ./index.html"
+  },
+  "devDependencies": {
+    "@types/history": "^4.7.6",
+    "@types/node": "^14.0.12",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "css-loader": "^3.5.3",
+    "node-sass": "^4.14.1",
+    "parcel": "^2.0.0-alpha.3.2",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-compress": "^2.0.2",
+    "react-hot-loader": "^4.12.21",
+    "sass-loader": "^8.0.2",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "history": "^4.10.1",
+    "react": ">=15",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router": ">=5",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  }
+}
