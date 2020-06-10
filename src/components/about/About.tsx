@@ -1,29 +1,49 @@
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
-import Axios from 'axios';
+import { connect } from 'react-redux';
+
 import './about.scss';
-
-const About : React.FC = () => {
-    const [data, setData] = React.useState([]);
-
-    React.useEffect(()=>{
-        Axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then((response)=>{
-                setData(response.data)
-            })
-    },[])
-    return (
-        <>
-            I am About Component
-           <ul> {
-                data.map((elem: any)=>{
-                    return (
-                        <li key={elem.id} className='list-item'>{elem.title}</li>
-                    )
-                })
-            }</ul>
-        </>
-    )
+import { DUMMY_LIST } from '../../actions/types';
+interface Aprops {
+  isMobileDevice?: boolean;
+  data?: any;
+  route: any;
+  dispatch: any;
 }
 
-export default hot(module)(About);
+class About extends React.Component<Aprops, any> {
+  handleClick = () => {};
+
+  componentDidMount() {
+    this.props.route.loadData()
+      .then((response) => {
+        this.props.dispatch({
+          type: DUMMY_LIST,
+          payload: response.data
+        });
+      });
+  }
+
+  render() {
+    console.log(process.env.NODE_ENV);
+    return (
+      <div className="about">
+        <p> I am About Component</p>
+        {
+          this.props.data.map((elem) => (
+            <div key={elem.title} className='list-item'>
+              {elem.title}
+            </div>
+          ))
+        }
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state: any) {
+  return {
+    data: state.dummy && state.dummy.data
+  };
+}
+export default hot(module)(connect(mapStateToProps, null)(About));

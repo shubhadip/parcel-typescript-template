@@ -1,19 +1,15 @@
-import * as React from 'react';
 import Home from '../components/home/Home';
-
-const About = React.lazy(() => import('./../components/about/About'));
-
-function AboutComponent() {
-  return (
-    <div>
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <About />
-      </React.Suspense>
-    </div>
-  );
-}
+import About from '../components/about/About';
+import PageNotFound from '../components/pagenotfound/PageNotFound';
+import { aboutLoadData } from '../actions/index';
 
 export default [
+  {
+    component: About,
+    routeName: 'about',
+    path: '/about',
+    loadData: aboutLoadData
+  },
   {
     component: Home,
     routeName: 'home',
@@ -21,8 +17,8 @@ export default [
     exact: true
   },
   {
-    component: AboutComponent,
-    routeName: 'about',
-    path: '/about'
-  },
+    component: PageNotFound,
+    routeName: 'pagenotfound',
+    path: '*'
+  }
 ];

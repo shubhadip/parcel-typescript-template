@@ -4,9 +4,26 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./index.html --open",
+    "dev": "IS_BROWSER=true parcel ./index.html --open",
     "watch": "parcel watch index.html",
-    "build": "rimraf ./dist && parcel build ./index.html"
+    "build": "rimraf ./dist && npm run build-client && npm run build-server",
+    "build-client": "NODE_ENV=production IS_BROWSER=true parcel build ./index.html ",
+    "build-server": "NODE_ENV=production IS_BROWSER=false parcel build ./src/server.tsx --target node",
+		"server": "rimraf ./dist/index.html ./dist/index.html.* && node ./dist/server.js",
+		"lint:fix": "eslint . --ext .tsx --fix",
+    "prettify": "prettier src/**/*.tsx --write",
+    "lint": "npm run prettify && npm run lint:fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.tsx": [
+      "npm run lint:fix",
+      "npm run prettify"
+    ]
   },
   "devDependencies": {
     "@types/history": "^4.7.6",
@@ -14,17 +31,31 @@
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
     "css-loader": "^3.5.3",
+    "express": "^4.17.1",
     "node-sass": "^4.14.1",
     "parcel": "^2.0.0-alpha.3.2",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-compress": "^2.0.2",
     "react-hot-loader": "^4.12.21",
     "sass-loader": "^8.0.2",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "history": "^4.10.1",
+    "mobile-detect": "^1.4.4",
     "react": ">=15",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

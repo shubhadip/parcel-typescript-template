@@ -1,18 +1,14 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import store from './../../store';
-import './../../scss/main.scss'; // this has to be on the top
+import store from '../../store';
+import '../../scss/main.scss'; // this has to be on the top
 import RouteMap from '../../router';
 
-interface IProps {
+interface AProps {
   isMobileDevice?: boolean;
 }
 
-class App extends React.Component<any, any> {
-  constructor(props: IProps) {
-    super(props);
-  }
-
+class App extends React.Component<AProps, any> {
   render() {
     return (
       <div>

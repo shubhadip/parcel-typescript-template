@@ -5,19 +5,10 @@ import { connect } from 'react-redux';
 import Routes from './routerlinks';
 
 class RouteMap extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
-    return (
-      <main>
-        {renderRoutes(Routes as any)}
-      </main>
-    );
+    return <main>{renderRoutes(Routes as any)}</main>;
   }
 }
 
