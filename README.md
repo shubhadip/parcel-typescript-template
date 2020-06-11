@@ -1,7 +1,6 @@
 # parcel-typescript-template
 React TypeScript Template using Parcel 
-## code sharing between Web, iOS and Android
-\
+
 **Technology Used:**\
 [React](https://reactjs.org/)\
 [Parcel](https://github.com/parcel-bundler/parcel)\
@@ -13,9 +12,9 @@ Please follow below mentioned step to run this project:
 
 - Clone the repo
 ```shell##
-https://github.com/shubhadip/mono-repo-react-native
+https://github.com/shubhadip/parcel-typescript-template
 ```
-- run **yarn** in root folder
+- run **yarn install** in root folder
 
 #### To Run Client Version in Development
 - Run `yarn dev` in root folder.
